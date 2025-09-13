@@ -1,0 +1,79 @@
+.booking-section {
+  background: #eee;
+  padding: 80px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #00144b;
+}
+
+.booking-container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.booking-container p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+input, select {
+  padding: 12px 15px;
+  border: 1px solid #00144b;
+  outline: none;
+  font-size: 1rem;
+  color: #00144b;
+  background: #fff;
+}
+
+input:focus, select:focus {
+  border: 2px solid #000d33;
+}
+
+button.cta-btn {
+  background: rgba(0, 20, 75, 0.1);
+  color: #00144b;
+  padding: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+
+button.cta-btn:hover {
+  background: #00144b;
+  color: #eee;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .booking-container {
+    padding: 0 20px;
+  }
+}

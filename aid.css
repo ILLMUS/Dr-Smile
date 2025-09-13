@@ -1,0 +1,67 @@
+.medical-aid {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.medical-aid h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #00144b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.aid-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.aid-track {
+  display: flex;
+  gap: 40px;
+  animation: scrollLoop 30s linear infinite;
+}
+
+.aid-track img {
+  max-height: 60px;
+  max-width: 120px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.aid-track img:hover {
+  transform: scale(1.1);
+}
+
+/* Loop animation */
+@keyframes scrollLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .aid-track {
+    gap: 25px;
+    animation: scrollLoop 20s linear infinite;
+  }
+  .aid-track img {
+    max-height: 50px;
+    max-width: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .aid-track {
+    gap: 20px;
+    animation: scrollLoop 15s linear infinite;
+  }
+  .aid-track img {
+    max-height: 40px;
+    max-width: 80px;
+  }
+}

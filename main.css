@@ -1,0 +1,324 @@
+:root {
+  --primary: #00144b;
+  --light: #eee;
+  --gray: #777;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: var(--light);
+  color: var(--gray);
+}
+
+/* Topbar Default */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #00144b;
+  color: #eee;
+  padding: 5px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+}
+
+.topbar .socials a {
+  margin-right: 15px;
+  color: #eee;
+  transition: color 0.3s ease;
+}
+
+.topbar .socials a:hover {
+  color: #f1c40f;
+}
+
+.topbar .contact span {
+  margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .topbar {
+    flex-direction: column;      /* stack socials + contact */
+    align-items: flex-start;
+    gap: 5px;
+    padding: 10px 15px;
+  }
+
+  .topbar .socials {
+    order: 1;                    /* socials appear on top */
+    width: 100%;
+  }
+
+  .topbar .socials a {
+    margin-right: 10px;
+    font-size: 1.1rem;           /* slightly bigger for touch */
+  }
+
+  .topbar .contact {
+    order: 2;                    /* contact below */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .topbar .contact span {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices (optional) */
+@media screen and (max-width: 480px) {
+  .topbar {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .topbar .socials a {
+    font-size: 1rem;
+  }
+}
+
+
+/* Hero */
+.hero {
+  display: flex;
+  height: 100vh;
+}
+
+.hero-text, .hero-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-text {
+  flex-direction: column;
+  padding: 40px;
+  background: var(--primary);
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  color: var(--light);
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--gray);
+}
+
+.cta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 12px 20px;
+  border-radius: 0;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.primary-btn {
+  background: transparent;
+
+  border: 1px solid var(--light);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #000d33;
+  border: 1px solid var(--gray);
+  color: var(--gray);
+}
+
+.secondary-btn {
+  background: var(--light);
+  border: none;
+  color: var(--primary);
+}
+
+.secondary-btn:hover {
+  background: var(--primary);
+  color: white;
+  border: 1px solid var(--light);
+}
+
+/* Hero Image */
+.hero-img {
+  background: url(assets/imgs/smile-client.jpg) no-repeat center/cover;
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* stack text and image */
+    height: auto;
+  }
+
+  .hero-text, .hero-img {
+    flex: unset;           /* remove flex:1 */
+    width: 100%;
+    padding: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;       /* smaller heading */
+    text-align: center;    /* center text on mobile */
+  }
+
+  .hero-text p {
+    font-size: 1rem;       /* smaller paragraph */
+    text-align: center;
+  }
+
+  .cta {
+    justify-content: center; /* center buttons */
+    flex-wrap: wrap;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;           /* full-width buttons on small screens */
+    text-align: center;
+  }
+
+  .hero-img img {
+    height: 300px;         /* scale image nicely on mobile */
+    object-fit: cover;
+  }
+}
+
+
+/* Testimonials */
+.testimonials {
+  background: #f7f7f7;
+  color: #00144b;
+  font-family: 'Poppins', sans-serif;
+  padding: 100px 20px;
+}
+
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.testimonials p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: rgba(0,20,75,0.05);
+  flex: 1 1 300px;
+  padding: 25px;
+  border: 2px solid rgba(0,20,75,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.testimonial-card img {
+  width: 150px;
+  max-width: 150px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-card h4 {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #00144b;
+}
+
+/* Clinic Info */
+.clinic-info {
+  background: #fff;
+  color: #00144b;
+  font-family: 'Poppins', sans-serif;
+  padding: 100px 20px;
+}
+
+.clinic-info h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.clinic-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.clinic-map {
+  flex: 1 1 500px;
+}
+
+.clinic-details {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(0,20,75,0.05);
+  border: 2px solid rgba(0,20,75,0.1);
+  transition: transform 0.3s ease;
+}
+
+.info-item i {
+  color: #00144b;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Scroll Animation for testimonials */
+.testimonial-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
